@@ -1,0 +1,57 @@
+---
+const comparisonCards = [
+	{
+		area: 'Visibilidad de entregas',
+		accent: 'bg-primary',
+		traditional: 'Llamadas, hojas de cálculo y poca trazabilidad',
+		maya: 'Seguimiento en tiempo real y evidencia digital de cada entrega',
+	},
+	{
+		area: 'Eficiencia operativa',
+		accent: 'bg-secondary-container',
+		traditional: 'Rutas manuales, retrasos y más costo por cada despacho',
+		maya: 'Planificación inteligente para mover más entregas con el mismo equipo',
+	},
+	{
+		area: 'Experiencia del cliente final',
+		accent: 'bg-tertiary',
+		traditional: 'Poca comunicación y reclamos frecuentes',
+		maya: 'Notificaciones proactivas que elevan confianza y recompra',
+	},
+];
+---
+
+<section id="analitica" class="py-24">
+	<div class="max-w-7xl mx-auto px-8">
+		<div class="rounded-[2rem] bg-surface-container-low px-6 py-8 shadow-[0_24px_80px_rgba(23,28,31,0.08)] md:px-10 md:py-12">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="mt-4 font-headline text-3xl font-extrabold leading-tight text-on-surface md:text-4xl">Comparativa de Eficiencia</h2>
+			</div>
+
+			<div class="mt-12 grid gap-8 lg:grid-cols-3 xl:gap-10">
+				{comparisonCards.map((card) => (
+					<article class="flex h-full flex-col rounded-[1.5rem] bg-surface-container-lowest p-7 shadow-[0_10px_30px_rgba(23,28,31,0.06)] md:p-8">
+						<div class="flex items-start gap-3">
+							<span class={`mt-2 h-2 w-2 rounded-full ${card.accent}`}></span>
+							<h3 class="max-w-[12ch] font-headline text-xl font-extrabold leading-tight text-on-surface md:text-2xl">{card.area}</h3>
+						</div>
+
+						<div class="mt-8 flex flex-1 flex-col gap-6">
+							<div class="rounded-2xl bg-surface-container px-5 py-5">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-on-surface-variant">Operación tradicional</p>
+								<p class="mt-3 max-w-[19rem] text-sm leading-8 text-on-surface-variant md:text-base">{card.traditional}</p>
+							</div>
+
+							<div class="rounded-2xl bg-primary/10 px-5 py-5">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Con una plataforma como Maya</p>
+								<p class="mt-3 max-w-[19rem] text-sm font-semibold leading-8 text-primary md:text-base">{card.maya}</p>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+
+			<p class="mx-auto mt-10 max-w-3xl text-center text-sm leading-8 text-on-surface-variant md:text-base">La migración a una plataforma de gestión no es un lujo: es la forma más directa de proteger margen, cumplir promesas de entrega y escalar sin caos operativo.</p>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,19 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	bullets: string[];
+}
+
+const { title, description, bullets } = Astro.props;
+---
+
+<article class="card reveal">
+	<h3>{title}</h3>
+	<p>{description}</p>
+	<ul>
+		{bullets.map((bullet) => (
+			<li>{bullet}</li>
+		))}
+	</ul>
+</article>

@@ -1,0 +1,149 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const pageTitle = "Términos y Condiciones | Maya";
+const pageDescription =
+	"Condiciones de uso del servicio y referencias de privacidad de Maya, con mención a la Ley 81 de 2019 en Panamá.";
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+	<section class="legal-atmosphere relative overflow-hidden py-16 md:py-24">
+		<div aria-hidden="true" class="pointer-events-none absolute -top-32 left-1/2 h-72 w-72 -translate-x-[70%] rounded-full bg-primary/20 blur-3xl"></div>
+		<div aria-hidden="true" class="pointer-events-none absolute bottom-0 right-0 h-80 w-80 translate-x-1/4 translate-y-1/4 rounded-full bg-secondary/20 blur-3xl"></div>
+
+		<div class="relative mx-auto flex max-w-5xl flex-col gap-8 px-5 sm:px-8 lg:px-10">
+			<header class="rounded-[2rem] bg-surface-container-highest p-6 shadow-xl shadow-primary/10 md:p-10">
+				<div class="mb-6 flex flex-wrap items-center gap-3">
+					<span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-primary">
+						Legal
+					</span>
+					<span class="inline-flex items-center rounded-full bg-surface-container-high px-3 py-1 text-xs font-semibold text-on-surface">
+						Marco normativo vigente
+					</span>
+				</div>
+
+				<div class="grid gap-6">
+					<div>
+						<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface sm:text-5xl md:text-6xl">
+							Términos y condiciones - Maya
+						</h1>
+					</div>
+					<div>
+						<p class="max-w-2xl text-sm leading-relaxed text-on-surface sm:text-base">
+							Este documento describe condiciones generales de uso del servicio Maya y referencias a privacidad.
+						</p>
+						<p class="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+							Última actualización: 18 de abril de 2026
+						</p>
+					</div>
+				</div>
+			</header>
+
+			<ol class="space-y-4 sm:space-y-5 md:space-y-6">
+				<li class="rounded-3xl bg-surface-container-lowest p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8">
+					<div class="mb-4 flex items-start gap-4">
+						<span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full primary-gradient-btn text-sm font-extrabold text-on-primary">1</span>
+						<div>
+							<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">Aceptación</h2>
+							<p class="mt-3 text-base leading-relaxed text-on-surface-variant sm:text-lg">
+								Al acceder o usar los servicios de Maya, usted acepta estas condiciones. Si no está de
+								acuerdo, no debe utilizar el servicio.
+							</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="rounded-3xl bg-surface-container-lowest p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8">
+					<div class="mb-4 flex items-start gap-4">
+						<span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full primary-gradient-btn text-sm font-extrabold text-on-primary">2</span>
+						<div class="w-full">
+							<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">Uso del servicio</h2>
+							<ol class="mt-4 space-y-3 pl-0 text-base leading-relaxed text-on-surface-variant sm:text-lg">
+								<li class="flex gap-3">
+									<span class="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">1</span>
+									<span>
+										El servicio se ofrece según disponibilidad y las funcionalidades del momento que están sujetas a
+										cambios.
+									</span>
+								</li>
+								<li class="flex gap-3">
+									<span class="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">2</span>
+									<span>
+										Queda prohibido el uso del servicio para fines ilícitos o que vulneren derechos de terceros.
+									</span>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</li>
+
+				<li class="rounded-3xl bg-surface-container-lowest p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8">
+					<div class="mb-4 flex items-start gap-4">
+						<span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full primary-gradient-btn text-sm font-extrabold text-on-primary">3</span>
+						<div>
+							<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">Privacidad y datos personales</h2>
+							<p class="mt-3 text-base leading-relaxed text-on-surface-variant sm:text-lg">
+								El tratamiento de datos personales se rige por la legislación aplicable en Panamá, incluida la Ley 81
+								de 2019, en la medida en que resulte aplicable al servicio. Los fines del tratamiento incluyen la
+								prestación del servicio, soporte y cumplimiento legal. Para ejercer derechos de acceso,
+								rectificación u oposición, puede contactar al responsable indicado en el portal o en la política de
+								privacidad publicada.
+							</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="rounded-3xl bg-surface-container-lowest p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8">
+					<div class="mb-4 flex items-start gap-4">
+						<span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full primary-gradient-btn text-sm font-extrabold text-on-primary">4</span>
+						<div>
+							<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">Propiedad intelectual</h2>
+							<p class="mt-3 text-base leading-relaxed text-on-surface-variant sm:text-lg">
+								Maya, su marca y los materiales del sitio están protegidos. No se concede licencia sobre ellos salvo
+								lo necesario para usar el servicio.
+							</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="rounded-3xl bg-surface-container-lowest p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8">
+					<div class="mb-4 flex items-start gap-4">
+						<span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full primary-gradient-btn text-sm font-extrabold text-on-primary">5</span>
+						<div>
+							<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">Limitación de responsabilidad</h2>
+							<p class="mt-3 text-base leading-relaxed text-on-surface-variant sm:text-lg">
+								En la máxima medida permitida por la ley, la responsabilidad por daños indirectos o lucro cesante
+								puede quedar limitada. Nada en este documento excluye responsabilidades que no puedan excluirse por
+								ley.
+							</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="rounded-3xl bg-surface-container-lowest p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8">
+					<div class="mb-4 flex items-start gap-4">
+						<span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full primary-gradient-btn text-sm font-extrabold text-on-primary">6</span>
+						<div>
+							<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">Modificaciones</h2>
+							<p class="mt-3 text-base leading-relaxed text-on-surface-variant sm:text-lg">
+								Maya puede actualizar estas condiciones. Los cambios relevantes se comunicarán por medios como correo o notificaciones en el sitio. El uso continuado del servicio tras cambios implica aceptación de los mismos.
+							</p>
+						</div>
+					</div>
+				</li>
+                <li class="relative overflow-hidden rounded-3xl p-5 shadow-lg shadow-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-high sm:p-6 md:p-8"
+                    style="background-image: url('/operador_logistico.jpg'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-primary/80 backdrop-blur-sm"></div>
+                    <div class="relative z-10 mb-4 flex items-start gap-4">
+                        <div>
+                            <h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-primary sm:text-3xl">Maya impulsa la eficiencia y la visibilidad</h2>
+                            <p class="mt-3 text-base leading-relaxed text-on-primary sm:text-lg">
+                                Plataforma diseñada para transformar operaciones de última milla, mejorar la toma de decisiones y reducir costos con datos en tiempo real.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+			</ol>
+		</div>
+	</section>
+</MainLayout>

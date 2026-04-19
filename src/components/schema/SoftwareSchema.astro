@@ -1,0 +1,19 @@
+---
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	name: "Maya Platform",
+	applicationCategory: "BusinessApplication",
+	operatingSystem: "Web",
+	description:
+		"Software para gestionar operaciones logísticas de última milla en Panamá con analítica en tiempo real, optimización de rutas y prueba de entrega electrónica.",
+	offers: {
+		"@type": "Offer",
+		price: "0",
+		priceCurrency: "USD",
+		description: "Demo y prueba gratuita de 14 días"
+	}
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>

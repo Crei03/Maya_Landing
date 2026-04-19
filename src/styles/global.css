@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	min-height: max(884px, 100dvh);
+}
+
+.material-symbols-outlined {
+	font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.glass-panel {
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.text-gradient {
+	background: linear-gradient(135deg, #006686 0%, #00a6d7 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.primary-gradient-btn {
+	background: linear-gradient(135deg, #006686 0%, #00a6d7 100%);
+}
+.dark .glass-panel {
+	background: rgba(23, 28, 31, 0.8);
+}
+
+.dark .bg-background {
+	background-color: #060c11 !important;
+}
+
+.dark .text-on-background {
+	color: #e5edf4 !important;
+}
+
+.dark .bg-surface-bright {
+	background-color: #0b1319 !important;
+}
+
+.dark .bg-surface-container-lowest {
+	background-color: #111b23 !important;
+}
+
+.dark .bg-surface-container-low {
+	background-color: #13202a !important;
+}
+
+.dark .bg-surface-container {
+	background-color: #182733 !important;
+}
+
+.dark .bg-surface-container-high {
+	background-color: #1c2d3a !important;
+}
+
+.dark .bg-surface-container-highest {
+	background-color: #223544 !important;
+}
+
+.dark .bg-surface-dim {
+	background-color: #1f323f !important;
+}
+
+.dark .bg-surface {
+	background-color: #101920 !important;
+}
+
+.dark .text-on-surface {
+	color: #ecf3fa !important;
+}
+
+.dark .text-on-surface-variant {
+	color: #b8c7d5 !important;
+}
+
+.dark .text-primary {
+	color: #7ed9ff !important;
+}
+
+.dark .bg-primary,
+.dark .bg-primary-container {
+	background-color: #1b89ad !important;
+}
+
+.dark .bg-primary\/10 {
+	background-color: rgba(126, 217, 255, 0.16) !important;
+}
+
+.dark .bg-primary\/20 {
+	background-color: rgba(126, 217, 255, 0.24) !important;
+}
+
+.dark .text-secondary {
+	color: #9be6ff !important;
+}
+
+.dark .bg-secondary-container {
+	background-color: #2f88a7 !important;
+}
+
+.dark .bg-secondary-container\/10 {
+	background-color: rgba(155, 230, 255, 0.16) !important;
+}
+
+.dark .text-tertiary {
+	color: #bfd5dd !important;
+}
+
+.dark .bg-tertiary {
+	background-color: #748f98 !important;
+}
+
+.dark .bg-tertiary-container\/10 {
+	background-color: rgba(191, 213, 221, 0.15) !important;
+}
+
+.dark .text-gradient {
+	background: linear-gradient(135deg, #66d6ff 0%, #99e6ff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

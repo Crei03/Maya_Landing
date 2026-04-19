@@ -1,0 +1,33 @@
+---
+import ResourceCard from "../cards/ResourceCard.astro";
+
+const resources = [
+	{
+		title: "Como optimizar rutas de entrega en Panamá",
+		description: "Guía para reducir kilometraje improductivo y mejorar puntualidad en zonas urbanas.",
+		href: "/blog/como-optimizar-rutas-de-entrega-en-Panamá"
+	},
+	{
+		title: "Qué es ePOD y por qué reduce reclamaciones",
+		description: "Buenas prácticas de prueba de entrega digital en operaciones con alto volumen.",
+		href: "/blog/que-es-la-prueba-de-entrega-electronica-epod"
+	},
+	{
+		title: "KPIs logísticos para medir última milla",
+		description: "Indicadores esenciales para dirigir decisiones en operaciones de entrega.",
+		href: "/blog/kpis-logísticos-para-medicion-de-ultima-milla"
+	}
+];
+---
+
+<section class="section" aria-labelledby="blog-seo-title">
+	<div class="shell">
+		<h2 id="blog-seo-title" class="reveal">Centro de recursos SEO para crecimiento orgánico</h2>
+		<p class="section-copy reveal">
+			Bloque preparado para conectar la landing con contenido de búsqueda informacional y fortalecer autoridad sectorial.
+		</p>
+		<div class="cards cards-3">
+			{resources.map((resource) => <ResourceCard {...resource} />)}
+		</div>
+	</div>
+</section>

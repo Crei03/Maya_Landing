@@ -1,0 +1,55 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import ProblemSection from "../components/sections/ProblemSection.astro";
+import BenefitsSection from "../components/sections/BenefitsSection.astro";
+import FeaturesSection from "../components/sections/FeaturesSection.astro";
+import AnalyticsSection from "../components/sections/AnalyticsSection.astro";
+import FaqSection from "../components/sections/FaqSection.astro";
+import CtaSection from "../components/sections/CtaSection.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const pageTitle = "Maya | Logística de última milla para operadores en Panamá";
+const pageDescription =
+	"Plataforma logística de última milla en Panamá para operadores, transportistas y destinatarios con analítica en tiempo real y optimización de entregas.";
+
+const faqItems = [
+	{
+		question: "¿Es Maya compatible con mi flota actual?",
+		answer:
+			"Sí. La plataforma puede operar con app móvil o integrarse con dispositivos telemáticos existentes en la flota."
+	},
+
+	{
+		question: "¿Tienen soporte técnico local en Panamá?",
+		answer:
+			"Sí. Hay equipo técnico local y atención prioritaria para operaciones corporativas en Panamá."
+	},
+	{
+		question: "¿Maya funciona para empresas pequeñas y operaciones en crecimiento?",
+		answer:
+			"Sí. Maya se adapta a empresas que están empezando y también a operaciones con alta demanda, para crecer sin perder control."
+	},
+	{
+		question: "¿Qué necesito para iniciar una demostración personalizada?",
+		answer:
+			"Solo necesitamos que completes el formulario para conocer tu volumen de entregas, zonas de cobertura y proceso actual para mostrarte una demo ajustada a tu realidad."
+	},
+	{
+		question: "¿Puedo empezar por una zona o unidad de negocio y luego escalar?",
+		answer:
+			"Claro. Puedes iniciar con una operación piloto, validar resultados y luego expandir por etapas sin frenar tu operación actual."
+	}
+];
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+	<FaqSchema items={faqItems} />
+	<HeroSection />
+	<ProblemSection />
+	<BenefitsSection />
+	<FeaturesSection />
+	<AnalyticsSection />
+	<FaqSection items={faqItems} />
+	<CtaSection />
+</MainLayout>
