@@ -1,0 +1,47 @@
+---
+import PostCard from "./PostCard.astro";
+
+interface Props {
+	currentSlug: string;
+	posts: any[];
+	readingTime?: boolean;
+}
+
+const { currentSlug, posts, readingTime } = Astro.props;
+const displayPosts = posts.slice(0, 3);
+---
+
+<div>
+	<div class="mb-10 flex items-center gap-4">
+		<h2 class="font-headline text-2xl font-extrabold text-on-surface md:text-3xl">
+			Artículos relacionados
+		</h2>
+		<div class="h-px flex-1 bg-surface-variant/30" />
+		<a
+			href="/blog"
+			class="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-all hover:gap-2"
+		>
+			Ver todos
+			<span class="material-symbols-outlined text-base">arrow_forward</span>
+		</a>
+	</div>
+
+	{displayPosts.length > 0 ? (
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+			{displayPosts.map((post) => (
+				<PostCard
+					title={post.title}
+					excerpt={post.excerpt ?? ""}
+					publishedAt={post.published_at}
+					featuredImageUrl={post.featured_image_url}
+					readingTime={post.reading_time}
+					href={`/blog/${post.slug}`}
+				/>
+			))}
+		</div>
+	) : (
+		<div class="rounded-2xl bg-surface-container-lowest px-8 py-12 text-center dark:bg-surface-container-low">
+			<p class="text-on-surface-variant/70">No hay más artículos relacionados por ahora.</p>
+		</div>
+	)}
+</div>

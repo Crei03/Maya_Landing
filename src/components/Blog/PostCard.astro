@@ -1,0 +1,81 @@
+---
+interface Props {
+	title: string;
+	excerpt: string;
+	publishedAt: string;
+	featuredImageUrl?: string;
+	readingTime?: number;
+	href: string;
+}
+
+const { title, excerpt, publishedAt, featuredImageUrl, readingTime, href } = Astro.props;
+
+const date = new Date(publishedAt);
+const formattedDate = date.toLocaleDateString("es-PA", {
+	day: "2-digit",
+	month: "short",
+	year: "numeric",
+});
+
+const truncatedExcerpt = excerpt.length > 130 ? excerpt.slice(0, 130) + "…" : excerpt;
+
+const gradientPairs = [
+	"from-sky-500/20 via-blue-500/10 to-indigo-500/20",
+	"from-teal-500/20 via-emerald-500/10 to-cyan-500/20",
+	"from-violet-500/20 via-purple-500/10 to-fuchsia-500/20",
+	"from-amber-500/20 via-orange-500/10 to-rose-500/20",
+];
+
+const gradientIndex = [...title].reduce((acc, c) => acc + c.charCodeAt(0), 0) % gradientPairs.length;
+const fallbackGradient = gradientPairs[gradientIndex];
+---
+
+<a
+	class="group flex flex-col overflow-hidden rounded-2xl bg-surface-container-lowest shadow-lg shadow-surface-container/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/10 dark:bg-surface-container-low dark:shadow-black/20"
+	href={href}
+>
+	<!-- Image area -->
+	<div class="relative aspect-[16/10] w-full overflow-hidden">
+		{featuredImageUrl ? (
+			<>
+				<img
+					src={featuredImageUrl}
+					alt={title}
+					class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+					loading="lazy"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+			</>
+		) : (
+			<div class="flex h-full w-full items-center justify-center bg-gradient-to-br {fallbackGradient} dark:opacity-80">
+				<span class="material-symbols-outlined text-5xl text-on-surface-variant/30">article</span>
+			</div>
+		)}
+
+		{readingTime && (
+			<span class="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-on-surface shadow-sm backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-200">
+				<span class="material-symbols-outlined text-sm">schedule</span>
+				{readingTime} min de lectura
+			</span>
+		)}
+	</div>
+
+	<!-- Content area -->
+	<div class="flex flex-1 flex-col p-5">
+		<time class="text-xs font-semibold uppercase tracking-[0.12em] text-primary/70 dark:text-primary/80">
+			{formattedDate}
+		</time>
+		<h3 class="mt-2 font-headline text-lg font-extrabold leading-snug text-on-surface transition-colors duration-200 group-hover:text-primary">
+			{title}
+		</h3>
+		<p class="mt-2 text-sm leading-relaxed text-on-surface-variant">
+			{truncatedExcerpt}
+		</p>
+		<div class="mt-auto pt-4">
+			<span class="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-all duration-200 group-hover:gap-2">
+				Leer artículo
+				<span class="material-symbols-outlined text-base">arrow_forward</span>
+			</span>
+		</div>
+	</div>
+</a>

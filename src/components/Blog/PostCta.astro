@@ -1,0 +1,31 @@
+---
+const whatsappUrl = "https://wa.me/50761877476?text=Hola,%20quiero%20más%20información%20sobre%20Maya.";
+---
+
+<div class="relative overflow-hidden rounded-3xl bg-on-surface p-8 text-center md:p-16">
+	<div class="relative z-10">
+		<h2 class="font-headline text-3xl font-extrabold leading-tight text-surface md:text-5xl">
+			¿Quieres optimizar tu operación de última milla?
+		</h2>
+		<p class="mx-auto mt-4 max-w-2xl text-lg text-surface-variant md:text-xl">
+			Agenda una demostración personalizada y descubre cómo Maya puede transformar tu logística.
+		</p>
+		<div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+			<a
+				href="/#formulario"
+				class="primary-gradient-btn rounded-xl px-8 py-4 font-bold text-white shadow-lg shadow-primary/20 transition-transform active:scale-95"
+			>
+				Solicitar demo
+			</a>
+			<a
+				href={whatsappUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex items-center gap-2 font-semibold text-surface transition-colors hover:text-primary"
+			>
+				<span class="material-symbols-outlined">chat</span>
+				Contáctanos por WhatsApp
+			</a>
+		</div>
+	</div>
+</div>

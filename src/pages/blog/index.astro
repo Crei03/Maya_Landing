@@ -1,0 +1,143 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostCard from "../../components/Blog/PostCard.astro";
+
+const MAYA_API_URL = import.meta.env.MAYA_API_URL;
+
+let posts: any[] = [];
+let apiError = false;
+
+try {
+	const res = await fetch(`${MAYA_API_URL}/api/blog/posts?per_page=100`);
+	if (res.ok) {
+		const json = await res.json();
+		posts = json.data ?? [];
+	} else {
+		apiError = true;
+	}
+} catch {
+	apiError = true;
+}
+
+const featured = posts.length > 0 ? posts[0] : null;
+const remaining = posts.slice(1);
+
+const pageTitle = "Blog | Maya — Logística de última milla";
+const pageDescription = "Recursos, guías y artículos sobre logística de última milla, optimización de rutas y gestión de entregas en Panamá.";
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+	<!-- Hero -->
+	<section class="relative overflow-hidden bg-gradient-to-b from-surface-bright via-surface to-surface-bright pb-24 pt-28 md:pt-36">
+		<div class="absolute inset-0 overflow-hidden">
+			<div class="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-primary/5 blur-[128px]" />
+			<div class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-secondary/5 blur-[128px]" />
+		</div>
+
+		<div class="relative mx-auto max-w-7xl px-8">
+			<div class="mx-auto mb-12 max-w-3xl text-center">
+				<span class="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-primary">
+					Blog
+				</span>
+				<h1 class="mt-5 font-headline text-4xl font-extrabold leading-[1.1] tracking-tight text-on-surface md:text-6xl">
+					Recursos de <span class="text-gradient">logística y última milla</span>
+				</h1>
+				<p class="mx-auto mt-4 max-w-xl text-lg text-on-surface-variant">
+					Artículos, guías y mejores prácticas para operadores logísticos en Panamá.
+				</p>
+			</div>
+
+			<!-- Featured post -->
+			{featured && (
+				<a
+					href={`/blog/${featured.slug}`}
+					class="group relative mx-auto mb-16 block max-w-5xl overflow-hidden rounded-3xl bg-surface-container-lowest shadow-xl shadow-surface-container/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-surface-container-low dark:shadow-black/20"
+				>
+					<div class="grid grid-cols-1 md:grid-cols-5">
+						<div class="relative col-span-3 overflow-hidden md:aspect-auto">
+							{featured.featured_image_url ? (
+								<>
+									<img src={featured.featured_image_url} alt={featured.title} class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105" loading="eager" />
+									<div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+								</>
+							) : (
+								<div class="flex h-full min-h-[240px] items-center justify-center bg-gradient-to-br from-primary/20 via-secondary/10 to-tertiary/20 dark:from-primary/10 dark:via-secondary/5 dark:to-tertiary/10">
+									<span class="material-symbols-outlined text-7xl text-on-surface-variant/30">article</span>
+								</div>
+							)}
+						</div>
+						<div class="flex flex-col justify-center p-6 md:col-span-2 md:p-8">
+							<span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-primary/70">
+								<span class="material-symbols-outlined text-sm">star</span>
+								Artículo destacado
+							</span>
+							<h2 class="mt-3 font-headline text-2xl font-extrabold leading-tight text-on-surface transition-colors duration-200 group-hover:text-primary md:text-3xl">
+								{featured.title}
+							</h2>
+							<p class="mt-3 line-clamp-3 text-sm leading-relaxed text-on-surface-variant">
+								{featured.excerpt ?? ""}
+							</p>
+							<div class="mt-4 flex items-center gap-4 text-xs text-on-surface-variant/80">
+								<time>
+									{new Date(featured.published_at).toLocaleDateString("es-PA", { day: "2-digit", month: "long", year: "numeric" })}
+								</time>
+								{featured.reading_time && (
+									<span class="flex items-center gap-1">
+										<span class="material-symbols-outlined text-sm">schedule</span>
+										{featured.reading_time} min
+									</span>
+								)}
+							</div>
+							<div class="mt-5">
+								<span class="inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-all duration-200 group-hover:gap-3">
+									Leer artículo destacado
+									<span class="material-symbols-outlined text-lg">arrow_forward</span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</a>
+			)}
+
+			<!-- Remaining posts grid -->
+			{remaining.length > 0 && (
+				<>
+					<div class="mb-8 flex items-center gap-3">
+						<div class="h-px flex-1 bg-surface-variant/50" />
+						<h2 class="text-sm font-bold uppercase tracking-[0.16em] text-on-surface-variant/70">Más artículos</h2>
+						<div class="h-px flex-1 bg-surface-variant/50" />
+					</div>
+
+					<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+						{remaining.map((post) => (
+							<PostCard
+								title={post.title}
+								excerpt={post.excerpt ?? ""}
+								publishedAt={post.published_at}
+								featuredImageUrl={post.featured_image_url}
+								readingTime={post.reading_time}
+								href={`/blog/${post.slug}`}
+							/>
+						))}
+					</div>
+				</>
+			)}
+
+			{posts.length === 1 && (
+				<div class="text-center">
+					<p class="text-on-surface-variant/70">Solo hay un artículo publicado por ahora. ¡Vuelve pronto!</p>
+				</div>
+			)}
+
+			{posts.length === 0 && (
+				<div class="py-24 text-center">
+					<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-surface-container-highest">
+						<span class="material-symbols-outlined text-4xl text-on-surface-variant/50">auto_stories</span>
+					</div>
+					<p class="text-xl font-bold text-on-surface">Próximamente contenido nuevo</p>
+					<p class="mt-2 text-on-surface-variant/70">Estamos preparando artículos valiosos para tu operación logística en Panamá.</p>
+				</div>
+			)}
+		</div>
+	</section>
+</MainLayout>

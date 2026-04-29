@@ -1,7 +1,9 @@
 ---
 import ResourceCard from "../cards/ResourceCard.astro";
 
-const resources = [
+const MAYA_API_URL = import.meta.env.MAYA_API_URL || "http://maya.local";
+
+const fallbackResources = [
 	{
 		title: "Como optimizar rutas de entrega en Panamá",
 		description: "Guía para reducir kilometraje improductivo y mejorar puntualidad en zonas urbanas.",
@@ -18,6 +20,25 @@ const resources = [
 		href: "/blog/kpis-logísticos-para-medicion-de-ultima-milla"
 	}
 ];
+
+let resources = fallbackResources;
+
+try {
+	const res = await fetch(`${MAYA_API_URL}/api/blog/posts?per_page=3`);
+	if (res.ok) {
+		const json = await res.json();
+		const posts = json.data ?? [];
+		if (posts.length > 0) {
+			resources = posts.map((post: any) => ({
+				title: post.title,
+				description: post.excerpt ?? "",
+				href: `/blog/${post.slug}`
+			}));
+		}
+	}
+} catch {
+	// Fall back to hardcoded resources on API failure
+}
 ---
 
 <section class="section" aria-labelledby="blog-seo-title">

@@ -123,3 +123,64 @@ body {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+/* Blog page dark mode overrides */
+.dark .from-surface-bright {
+	--tw-gradient-from: #0b1319 var(--tw-gradient-from-position);
+}
+.dark .via-surface {
+	--tw-gradient-to: #101920 var(--tw-gradient-to-position);
+	--tw-gradient-stops: var(--tw-gradient-from), #101920 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.dark .to-surface-bright {
+	--tw-gradient-to: #0b1319 var(--tw-gradient-from-position);
+}
+.dark .from-primary\/5 {
+	--tw-gradient-from: rgba(126, 217, 255, 0.05) var(--tw-gradient-from-position);
+}
+.dark .from-secondary\/5 {
+	--tw-gradient-from: rgba(155, 230, 255, 0.05) var(--tw-gradient-from-position);
+}
+.dark .from-primary\/20 {
+	--tw-gradient-from: rgba(126, 217, 255, 0.2) var(--tw-gradient-from-position);
+}
+.dark .via-secondary\/10 {
+	--tw-gradient-from: rgba(155, 230, 255, 0.1) var(--tw-gradient-via-position);
+}
+.dark .to-tertiary\/20 {
+	--tw-gradient-to: rgba(191, 213, 221, 0.2) var(--tw-gradient-to-position);
+}
+.dark .from-black\/20 {
+	--tw-gradient-from: rgba(0, 0, 0, 0.4) var(--tw-gradient-from-position);
+}
+.dark .from-transparent {
+	--tw-gradient-from: transparent var(--tw-gradient-from-position);
+}
+.dark .via-primary\/20 {
+	--tw-gradient-from: rgba(126, 217, 255, 0.2) var(--tw-gradient-via-position);
+}
+.dark .to-transparent {
+	--tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.dark .from-surface-variant\/20 {
+	--tw-gradient-from: rgba(184, 199, 213, 0.2) var(--tw-gradient-from-position);
+}
+.dark .via-surface {
+	--tw-gradient-to: #101920 var(--tw-gradient-to-position);
+	--tw-gradient-stops: var(--tw-gradient-from), #101920 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.dark .bg-surface-bright\/50 {
+	background-color: rgba(11, 19, 25, 0.5) !important;
+}
+.dark .shadow-surface-container\/50 {
+	--tw-shadow-color: rgba(0, 0, 0, 0.4) !important;
+}
+.dark .shadow-surface-container\/40 {
+	--tw-shadow-color: rgba(0, 0, 0, 0.3) !important;
+}
+.dark .bg-surface-variant\/50 {
+	background-color: rgba(184, 199, 213, 0.08) !important;
+}
+.dark .bg-surface-variant\/30 {
+	background-color: rgba(184, 199, 213, 0.06) !important;
+}
