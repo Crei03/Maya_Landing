@@ -21,11 +21,11 @@
 					</div>
 				</div>
 				<div class="bg-surface p-10 rounded-[2rem] text-on-surface shadow-2xl">
-					<form class="space-y-4" method="post" action="https://formsubmit.co/creidev03@gmail.com">
-						<input name="_captcha" type="hidden" value="false" />
-						<input name="_subject" type="hidden" value="Nueva solicitud de demostración de Maya" />
-						<input name="_template" type="hidden" value="table" />
-						<input aria-hidden="true" class="hidden" tabindex="-1" type="text" name="_honey" autocomplete="off" />
+					<form class="space-y-4" method="post" action="https://api.web3forms.com/submit">
+						<input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_KEY} />
+						<input type="hidden" name="subject" value="Nueva solicitud de demostración de Maya" />
+						<input type="hidden" name="from_name" value="Maya Landing Page" />
+						<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 						<div>
 							<label class="block text-sm font-bold mb-2" for="contact-name">Nombre completo del contacto</label>
 							<input id="contact-name" name="contact_name" class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20" placeholder="Ej. Javier De Obaldia" type="text" required minlength="2" maxlength="80" autocomplete="name" pattern="[A-Za-zÀ-ÿ0-9ÁÉÍÓÚÜÑáéíóúüñ'’.,&()\-\s]{2,80}" data-sanitize="text"/>
